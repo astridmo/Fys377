@@ -1,3 +1,10 @@
+# ===================================================
+# Change the value of x to get task 6.18 og 6.19
+#
+# NB!! The answers are very different!!
+# ===================================================
+
+
 import copy
 
 
@@ -14,7 +21,8 @@ def calc_epsilon(x_ny, x):
     return abs((x_ny - x)/x)
 
 y = 0
-x = 1  # Start value
+x = 1  # Start value of task 6.18
+x = -2  # Start value of task 6.19
 epsilon = 0.001
 x_ny = 4
 new_epsilon = 1000  # dummy value
