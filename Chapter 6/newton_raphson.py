@@ -36,6 +36,7 @@ def newton_raphson(x, y, epsilon):
         if i > 10:
             print('LOL')
             break
+        print(i)
     return x
 
 x = [1, 0]
