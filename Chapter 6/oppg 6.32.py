@@ -1,5 +1,6 @@
 
 import numpy as np
+import cmath
 
 # Using (6.5.2) page 309
 
@@ -33,22 +34,12 @@ V2 = complex(1, 0)  # Start value
 
 
 def gausseidel_easy(Y_22, S_2, V2, Y_21, V1):
-    V2 = (1/Y_22) * ((S_2/np.conj(V2)) - (Y_21 * V1))
-    V2 = (0.05+0.1j) * (((0.7-0.4j)/np.conj(1+0j)) - ((-4+8j) *1))
+    V2 = (1/Y_22) * ((np.conj(S_2)/np.conj(V2)) - (Y_21 * V1))
     return V2
 
-V2_new = gausseidel_easy(Y_22, S_2, V2, Y_21, V1)
+V2_it1 = gausseidel_easy(Y_22, S_2, V2, Y_21, V1)
+V2_it2 = gausseidel_easy(Y_22, S_2, V2_it1, Y_21, V1)
+V2_it3 = gausseidel_easy(Y_22, S_2, V2_it2, Y_21, V1)
 
-print(1/Y_22, S_2, V2, Y_21, V1)
-print('V2', V2_new)
 
-lol = (0.05+0.1j) * (((0.7-0.4j)/np.conj(1+0j)) - ((-4+8j) *1))
-print(lol)
-
-hei = 1+0j
-print(hei)
-print(np.conj(hei))
-
-V2_it0 = 1+0j
-V2_it1 = (0.05+0.1j) * (((0.7-0.4j) / np.conj(V2_it0)) - ((-4+8j)*1))
-print(V2_it1)
+print('Svaret er:', cmath.polar(V2_it1), cmath.polar(V2_it2), cmath.polar(V2_it3))
